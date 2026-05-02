@@ -1,0 +1,210 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zmiana Klimatu - Strona PRO</title>
+
+<style>
+body{
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:linear-gradient(135deg,#0f172a,#1e293b);
+  color:#fff;
+}
+
+header{
+  padding:60px 20px;
+  text-align:center;
+}
+
+h1{
+  font-size:3rem;
+  margin:0;
+}
+
+.container{
+  max-width:1100px;
+  margin:auto;
+  padding:20px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:20px;
+}
+
+.card{
+  background:#ffffff10;
+  padding:20px;
+  border-radius:18px;
+  box-shadow:0 8px 20px rgba(0,0,0,.25);
+}
+
+.value{
+  font-size:2rem;
+  color:#22c55e;
+  font-weight:bold;
+}
+
+.btn{
+  display:inline-block;
+  margin-top:20px;
+  padding:12px 20px;
+  border:none;
+  border-radius:12px;
+  background:#22c55e;
+  color:#001;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.fact{
+  margin-top:30px;
+  padding:20px;
+  background:#ffffff10;
+  border-radius:18px;
+  text-align:center;
+}
+
+.effects{
+  margin-top:90px;
+  padding-bottom:60px;
+}
+
+.effects h2{
+  text-align:center;
+  font-size:2.2rem;
+  margin-bottom:30px;
+}
+
+.effect-card{
+  background:#ffffff10;
+  padding:25px;
+  border-radius:18px;
+  margin-bottom:20px;
+  box-shadow:0 8px 20px rgba(0,0,0,.25);
+}
+
+.effect-card h3{
+  color:#22c55e;
+  margin-top:0;
+}
+
+.effect-card ul{
+  line-height:1.7;
+}
+
+footer{
+  text-align:center;
+  padding:20px;
+  color:#cbd5e1;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>🌍 Zmiana Klimatu</h1>
+  <p>Nowoczesna strona edukacyjna o środowisku i przyszłości planety</p>
+  <button class="btn" onclick="updateData()">Aktualizuj dane</button>
+</header>
+
+<div class="container">
+
+  <div class="grid">
+    <div class="card">
+      <h3>Wzrost temperatury</h3>
+      <div class="value" id="temp">1.2°C</div>
+    </div>
+
+    <div class="card">
+      <h3>Emisja dwutlenku węgla</h3>
+      <div class="value" id="co2">440.00 ppm</div>
+    </div>
+
+    <div class="card">
+      <h3>Poziom mórz</h3>
+      <div class="value" id="sea">3.4 mm/rok</div>
+    </div>
+  </div>
+
+  <div class="fact" id="fact">
+    Odnawialne źródła energii pomagają zmniejszyć emisję dwutlenku węgla.
+  </div>
+
+  <button class="btn" onclick="newFact()">Losowa ciekawostka</button>
+
+  <section class="effects">
+    <h2>Skutki zmian klimatu</h2>
+
+    <div class="effect-card">
+      <h3>Skutki wzrostu temperatury</h3>
+      <ul>
+        <li>Częstsze fale upałów.</li>
+        <li>Większe ryzyko suszy.</li>
+        <li>Pożary lasów.</li>
+        <li>Problemy z uprawami i produkcją żywności.</li>
+      </ul>
+    </div>
+
+    <div class="effect-card">
+      <h3>Skutki zwiększonej ilości dwutlenku węgla</h3>
+      <ul>
+        <li>Silniejsze zatrzymywanie ciepła w atmosferze.</li>
+        <li>Przyspieszenie globalnego ocieplenia.</li>
+        <li>Zakwaszanie oceanów.</li>
+        <li>Gorsze warunki życia dla wielu roślin i zwierząt.</li>
+      </ul>
+    </div>
+
+    <div class="effect-card">
+      <h3>Skutki podnoszenia się poziomu mórz</h3>
+      <ul>
+        <li>Zalewanie terenów nadmorskich.</li>
+        <li>Częstsze powodzie.</li>
+        <li>Niszczenie plaż i wybrzeży.</li>
+        <li>Zagrożenie dla miast położonych blisko morza.</li>
+      </ul>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  © 2026 Strona edukacyjna o zmianie klimatu
+</footer>
+
+<script>
+const facts = [
+  "Topnienie lodowców podnosi poziom mórz.",
+  "Sadzenie drzew pomaga pochłaniać dwutlenek węgla.",
+  "Recykling zmniejsza ilość odpadów.",
+  "Energia słoneczna jest czysta i odnawialna.",
+  "Każdy może ograniczyć swój ślad węglowy.",
+  "Wyższa temperatura może powodować susze i pożary.",
+  "Rosnący poziom mórz zagraża miastom położonym nad wodą."
+];
+
+function updateData(){
+  const temp = (1 + Math.random() * 1.5).toFixed(2);
+  const co2 = (380 + Math.random() * 80).toFixed(2);
+  const sea = (2 + Math.random() * 4).toFixed(2);
+
+  document.getElementById('temp').textContent = temp + '°C';
+  document.getElementById('co2').textContent = co2 + ' ppm';
+  document.getElementById('sea').textContent = sea + ' mm/rok';
+}
+
+function newFact(){
+  document.getElementById('fact').textContent =
+    facts[Math.floor(Math.random() * facts.length)];
+}
+</script>
+
+</body>
+</html>
+
